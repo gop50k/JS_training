@@ -6,20 +6,9 @@
 </head>
 <body>
 	<p>jQueryPractice</p>
-	<ul id="main">
-		<li>0</li>
-		<li class="item">1</li>
-		<li class="item">2</li>
-		<li>
-			3
-				<ul id="sub">
-						<li>3-0</li>
-						<li class="item">3-1</li>
-						<li class="item">3-2</li>
-						<li>3-3</li>
-				</ul>
-		</li>
-	</ul>
+	<p><a href="http://google.com">Google</a></p>
+	<p><a href="http://yahoo.com">Yahoo!</a></p>
+	<p><a href="https://github.com/gop50k">Git</a></p>
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script>
 		/*
@@ -30,17 +19,17 @@
 
 		$(function() {
 			/* 
-			// ??
-			$("#sub").css("color", "red"); // id??
-			$(".item").css("color","red"); // ?????
-			$("#main > .item").css("color","red"); // ?????
-			$("#main  .item").css("color","red"); // ???????
-			$("p, .item").css("color","red"); // ?????
-			$(".item + .item").css("color","red"); // ??????
+			// selector
+			$("#sub").css("color", "red"); // id element
+			$(".item").css("color","red"); // class element
+			$("#main > .item").css("color","red"); // directly under element
+			$("#main  .item").css("color","red"); // under element
+			$("p, .item").css("color","red"); // some element
+			$(".item + .item").css("color","red"); // next element
 			*/
 
 			/*
-		// ????? :eq(), :gt()(????), :lt()(????), :even(??), :odd(??), :contains()(????), :first(1??), :last(1??)
+		// ????? :eq(), :gt()(more), :lt()(less than), :even, :odd, :contains(), :first, :last
 		// $("#sub > li:eq(2)").css("color", "red");
 		// $("#sub > li:gt(1)").css("color", "red");
 		// $("#sub > li:lt(2)").css("color", "red");
@@ -51,8 +40,18 @@
 		// $("#sub > li:last").css("color", "red");
 		*/
 
-		// DOM?????
-		$("#sub").parent().css("color", "red"); //parent element
+		// designation of dom element
+		// $("#sub").parent().css("color", "red"); //parent element
+		// $("#sub").children().css("color", "red");
+		// $("#sub > li:eq(2)").next().css("color", "red");
+		// $("#sub > li:eq(2)").prev().css("color", "red");
+		// $("#sub > li:eq(2)").siblings().css("color", "red"); // brother element
+
+		// attribute selector =, !=, *= contain, ^= first, $= end 
+		// $("a[href!='http://google.com']").css("background", "red");
+		// $("a[href*='git']").css("background", "red");
+		// $("a[href^='h']").css("background", "red");
+		// $("a[href*='m']").css("background", "red");
 
 		});
 
