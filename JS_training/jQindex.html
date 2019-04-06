@@ -6,15 +6,20 @@
 </head>
 <body>
 	<h1>jQueryPractice</h1>
-	<p><a href="http://google.com">Google</a></p>
-	<p><a href="http://yahoo.com">Yahoo!</a></p>
-	<p><a href="https://github.com/gop50k">Git</a></p>
-	<style>
-		.mystyle {
-			border: 5px solid green;
-			font-size: 100px;
-		}
-	</style>
+	<button>Add!</button>
+	<div id="box" style="width:100 px; height:100px; background:green;"></div>
+	<input type="text" id="name">
+		<select id="members" name="members">
+			<option>tanaka</option>
+			<option>satoh</option>
+			<option>kawayam</option>
+		</select>
+	<ul>
+			<li>0</li>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+	</ul>
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script>
 		/*
@@ -23,7 +28,7 @@
 		});
 		*/
 
-		$(function() {
+	$(function() {
 			/* 
 			// selector
 			$("#sub").css("color", "red"); // id element
@@ -35,7 +40,7 @@
 			*/
 
 			/*
-		// ????? :eq(), :gt()(more), :lt()(less than), :even, :odd, :contains(), :first, :last
+		// filter :eq(), :gt()(more), :lt()(less than), :even, :odd, :contains(), :first, :last
 		// $("#sub > li:eq(2)").css("color", "red");
 		// $("#sub > li:gt(1)").css("color", "red");
 		// $("#sub > li:lt(2)").css("color", "red");
@@ -69,22 +74,95 @@
 		$("h1").removeClass("mystyle");
 		*/
 
-		// 
+		/*
+		// attribute method
+		console.log($("a").attr("href"));
+		$("a").attr("href", "http://yahoo.co.jp");
 
+		// data method
+		console.log($("a").data("sitename"));
+		*/
 
+		/*
+		// tag change method
+		$("h1").text("tag contains change");
+		$("h1").html("<a href='http://aiko.com'>aiko</a>")
+		console.log($("input").val());
+		$("input").val("hello again!")
+		console.log($("input").val());
+		$("p").remove();
+		// $("p").empty();
+		*/
 
-
-
-
-
-
-
-
-
-
-
-
+		/*
+		// add element dinamicaly
+		// before, after, prepend first, append end
+		var li = $("<li>").text("just append!");
+		// $("ul > li:eq(1)").before(li);
+		// $("ul > li:eq(1)").after(li);
+		// li.insertBefore($("ul > li:eq(1)"));
+		$("ul").prepend(li);
+		$("ul").append(li);
+    */
+		/*
+		// effect
+		// hide, show. fade in, out, toggle?
+		// $("#box").hide("slow"); 
+		// $("#box").show(999); 
+		$("#box").fadeOut(800);
+		// $("#box").fadeIn(800);
+		$("#box").toggle(800, function(){
+			alert("gone!");
 		});
+		*/ 
+
+		/*
+		// event
+		// click, mouseover, mouseout, mousemove
+		/*
+		$("#box").click(function(){
+			alert("clicked!");
+		});
+		
+		$("#box").mouseover(function(){
+			$(this).css("background", "red");
+		});
+
+		$("#box").mouseout(function(){
+			$(this).css("background", "green");
+		});
+		
+		$("#box").mousemove(function(e){
+			$(this).text(e.pageY);
+		});
+		*/
+
+    /*
+		// change event
+		// form method, focus, blur = focus out, change
+		$("#name").focus(function(){
+			$(this).css("background","red");
+		});
+
+		$("#name").blur(function(){
+			$(this).css("background", "white");
+		});
+
+		$("#members").change(function() {
+			alert("members changed!");			
+		});
+		*/
+
+		// on method
+		$("button").click(function(){
+			var p = $('<p>').text('vanish!').addClass('vanish');
+			$(this).before(p);
+		});
+		
+		$("body").on("click", ".vanish", function(){
+			$(this).remove();
+		});
+	});
 
 	</script>
 </body>
